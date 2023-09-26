@@ -15,7 +15,7 @@
 		<!-- MariaDB JDBC DataSource -->
 	 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	  <property name="driverClassName" value="org.mariadb.jdbc.Driver" />
-	  <property name="url" value="jdbc:mariadb://127.0.0.1:3306/test" />
+	  <property name="url" value="jdbc:mariadb://127.0.0.1:3306/ticket" />
 	  <property name="username" value="root" />
 	  <property name="password" value="1234" />
 	 </bean>  
@@ -28,5 +28,9 @@
 	 
 	 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		  <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
-	 </bean>  
+	 </bean> 
+	 <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	 	<property name="dataSource" ref="dataSource" />
+	 </bean> 
+	 
 </beans>
