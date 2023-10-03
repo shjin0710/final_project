@@ -13,12 +13,17 @@
 	<section>
 		<div id="">
 			<div class="">
-				<h3>PRODUCT DETAIL</h3>
+				<h3>${productVo.p_name}</h3>
 			</div>
 			<div class="">
 				<ul>
 					<li>
 						<img src="<c:url value="/productUploadImg/${productVo.p_img}"/>">
+					</li>
+					<li>
+						<table>
+						
+						</table>
 					</li>
 				</ul>
 			</div>
