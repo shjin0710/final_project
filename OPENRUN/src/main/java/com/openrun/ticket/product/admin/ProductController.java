@@ -34,7 +34,7 @@ public class ProductController {
 		return nextPage;
 	}
 	
-	@PostMapping("/registerProdcutConfirm")
+	@PostMapping("/registerProductConfirm")
 	public String registerProductConfirm(ProductVO productVo,
 									  @RequestParam("file") MultipartFile file) {
 		System.out.println("[ProductController] registerProductConfirm()");
@@ -116,17 +116,55 @@ public class ProductController {
 		return nextPage;
 	}
 	
-	@GetMapping("/deleteProductConfirm")
-	public String deleteProductConfirm(@RequestParam("p_no") int p_no) {
-		System.out.println("[ProductController] deleteProductConfirm()");
+	//product_sell_info.jsp 컨트롤러-DAO아직 없음, 페이지창만 열리게 해둠
+	@GetMapping("/productSellInfo")
+	public String productSellInfo(@RequestParam("p_no") int p_no, Model model) {
+		System.out.println("[ProductController] productSellInfo()");
 		
-		String nextPage = "admin/product/delete_product_ok";
+		String nextPage = "admin/product/product_sell_info";
 		
-		int result = productService.deleteProductConfirm(p_no);
+		ProductVO productVo = productService.productDetail(p_no);
 		
-		if(result <= 0) {
-			nextPage = "admin/product/delete_product_ng";
-		}
+		model.addAttribute("productVo", productVo);
+		
+		return nextPage;
+	}
+	
+	//product_review.jsp 컨트롤러-DAO아직 없음, 페이지창만 열리게 해둠
+	@GetMapping("/productReview")
+	public String productReview(@RequestParam("p_no") int p_no, Model model) {
+		System.out.println("[ProductController] productReview()");
+		
+		String nextPage = "admin/product/product_review";
+		
+		ProductVO productVo = productService.productDetail(p_no);
+		
+		model.addAttribute("productVo", productVo);
+		
+		return nextPage;
+	}
+	
+	//product_place_info.jsp 컨트롤러-DAO아직 없음, 페이지창만 열리게 해둠
+	@GetMapping("/productPlaceInfo")
+	public String productPlaceInfo(@RequestParam("p_no") int p_no, Model model) {
+		System.out.println("[ProductController] productPlaceInfo()");
+		
+		String nextPage = "admin/product/product_place_info";
+		
+		ProductVO productVo = productService.productDetail(p_no);
+		
+		model.addAttribute("productVo", productVo);
+		
+		return nextPage;
+	}
+	
+	//seller_product_list.jsp 컨트롤러-DAO아직 없음, 페이지창만 열리게 해둠
+	@GetMapping("/sellerProductList")
+	public String sellerProductList() {
+		System.out.println("[ProductController] sellerProductList()");
+		
+		String nextPage = "admin/product/seller_product_list";
+		
 		return nextPage;
 	}
 }

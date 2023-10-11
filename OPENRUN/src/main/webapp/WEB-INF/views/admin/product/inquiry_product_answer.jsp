@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="<c:url value='/resources/common/css/sellerModifyProduct.css' />" rel="stylesheet" type="text/css">
+<link href="<c:url value='/resources/common/css/sellerInquiryAnswer.css' />" rel="stylesheet" type="text/css">
 <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 </head>
@@ -25,101 +25,23 @@
 				<div class="top_nav">
 					<table>
 						<tr>
-							<th>문의 목록 조회</th>
+							<th>답변 작성</th>
 						</tr>
 					</table>
 				</div>
-				<div class="inquiry_table">
-					<form action="<c:url value='/product/admin/inquiryProductList' />" name="inquiry_list" method="post" enctype="multipart/form-data">
+				<div class="inquiry_product_form">
+					<form action="<c:url value='/product/admin/inquiryProductAnswer' />" name="inquiry_product_answer" method="post" enctype="multipart/form-data">
 						<div>
-							<img src=""/>
-						</div>
-						<table>
-							<thead>
-								<tr>
-									<th>카테고리</th>
-									<th>제목</th>
-									<th>작성자</th>
-									<th>문의등록일</th>
-									<th>문의답변일</th>
-									<th>처리상태</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td><input type="button" value="답변작성" onClick="location.href='inquiry_product_answer.jsp'"></td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-				</div>
-				<div class="modify_product_form">
-					<form action="<c:url value='/product/admin/modifyProductConfirm' />" name="modify_product_form" method="post" enctype="multipart/form-data">
-						<div class="filebox">
-							<input class="upload-name" value="상품이미지를 등록해주세요." placeholder="상품이미지를 등록해주세요." disabled>
-							<label for="file">파일찾기</label>
-							<input type="file" id="file" name="file" required>
-						</div>
-						<select name="p_category" class="select" required>
-							<option value="" disabled selected>카테고리를 선택하세요.</option>
-							<option value="1">뮤지컬</option>
-							<option value="2">콘서트</option>
-							<option value="3">연극</option>
-							<option value="4">클래식/무용</option>
-							<option value="5">전시/행사</option>
-						</select>
-						<select name="p_location" class="select" id="location" required>
-							<option value="" disabled selected>공연지역을 선택해주세요.</option>
-							<option value="1">전체</option>
-							<option value="02">서울</option>
-							<option value="031">경기</option>
-							<option value="032">인천</option>
-							<option value="033">강원</option>
-							<option value="051">부산</option>
-							<option value="053">대구</option>
-							<option value="042">대전</option>
-							<option value="052">울산</option>
-							<option value="054">경북</option>
-							<option value="055">경남</option>
-							<option value="062">광주</option>
-							<option value="043">충북</option>
-							<option value="041">충남</option>
-							<option value="063">전북</option>
-							<option value="061">전남</option>
-							<option value="064">제주</option>
-						</select><br>
-						
-						<input type="date" name="p_perfo_start_date" value="공연 시작 일자를 선택해주세요."	 required> 
-						<input type="date" name="p_perfo_end_date" value="공연 종료 일자를 선택해주세요." required> <br>
-						
-						<input type="date" name="p_resev_start_date" placeholder="예매 가능 일자를 선택해주세요." required> 
-						<input type="date" name="p_resev_end_date" placeholder="예매 종료 일자를 선택해주세요." required> <br>
-						
-						<input type="time" name="p_resev_start_time" placeholder="예매 시작 시간을 선택해주세요." required> 
-						<input type="time" name="p_resev_end_time" placeholder="예매 종료 시간을 선택해주세요." required> <br>
-						
-						<input type="text" name="p_viewing_grade" placeholder="관람등급을 입력해주세요." required> 
-						<input type="text" name="p_viewing_time" placeholder="관람시간을 입력해주세요."> <br>
-						
-						<select name="p_hall" class="select" required>
-							<option value="" disabled selected>공연장을 선택해주세요.</option>
-							<option value="1 ">BLUE SQUARE</option>
-							<option value="2">예술의 전당 </option>
-							<option value="3">서울문화회관</option>
-							<option value="4">중구문화재단</option>
-						</select>
-						<input type="text" name="p_seat_num" placeholder="좌석 수를 입력해주세요."> <br>
-						<div id="left_only">
-							<input type="text" name="p_seat_add" placeholder="좌석 등급을 추가하려면 버튼을 눌러주세요." > <br>
-						</div>
-						<input type="text" name="p_grade" placeholder="좌석 등급을 입력해주세요." required> 
-						<input type="text" name="p_price" placeholder="좌석 금액을 입력해주세요." required> <br>
-						<div class="inputTitle">
-							<input type="text" name="p_name" placeholder="제목을 입력해주세요." required> <br>
+							글번호 : ${board.boardNum }<br>
+							제목 : ${board.title } <br>
+							내용 : ${board.content }<br>
+							작성자 : ${board.writer }<br>
+							작성일 : ${board.createDate }<br>
+							 
+							<input type="button" value="삭제하기" onclick="location.href='delete.do?boardNum=${board.boardNum }';">
+							<!-- 어떤걸 삭제할건지 보드 번호를 가져가야해서 ?뒤에 문장이나옴. -->
+							<input type="button" value="수정" onclick="location.href='updateBoardForm.do?boardNum=${board.boardNum }';">
+							<!-- 상세보기 페이지로 넘어갈때도 글번호 데이터를 넘겨서 가져가야해서 ?뒤에 문장을쓴다. -->
 						</div>
 						<div>
 							<textarea rows="5" cols="50" id="editor1" name = "editor"></textarea>
@@ -127,12 +49,9 @@
 	               		         CKEDITOR.replace( 'editor1' );
 							</script>
 						</div>
-						<div id="buttons">
-						<input type="submit" value="수정" onclick="modifyProductForm();"> 
-						<input type="reset"	value="취소">
-						</div>
 					</form>
 				</div>
+
 			</div>
 		</div>
 	</section>

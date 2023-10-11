@@ -31,50 +31,38 @@
 				<div class="inquiry_table">
 					<form action="<c:url value='/product/admin/inquiryProductList' />" name="inquiry_list" method="post" enctype="multipart/form-data">
 						<div>
-							<img src="/resource/image/filter.png"/>
+							<img src="/resources/image/filter.png"/>
 							<p>옵션</p>
 						</div>
 						<table>
-							<thead>
-								<tr>
-									<th>카테고리</th>
-									<th>제목</th>
-									<th>작성자</th>
-									<th>문의등록일</th>
-									<th>문의답변일</th>
-									<th>처리상태</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="inquiry" items="${inquiryVos}">
-									<tr>
-										<td>
-										<c:url value='/product/admin/inquiryDetail' var='detail_url'>
-											<c:param name='i_no' value='${inquiry.i_no}'/>
-										</c:url>
-										<a href="${detail_url}">${inquiry.i_titile}</a>
-										</td>
-										<td>${inquiry.u_name}</td>
-										<td>${inquiry.i_date}</td>
-										<td>
-											<c:choose>
-												<c:when test="${item.i_answer_date eq 0}"> <c:out value="-" /> </c:when>
-												<c:when test="${item.i_answer_date eq 1}"> <c:out value="${inquiry.i_answer_date}" /> </c:when>
-												<c:otherwise> <c:out value="-" /> </c:otherwise>
-											</c:choose>
-										${inquiry.i_isbn}</td>
-										<td>
-											<input type="button" value="답변작성" onClick="location.href='inquiry_product_answer.jsp'">
-											<c:choose>
-												<c:when test="${item.i_answer_state eq 0}"> <c:out value="답변작성" /> </c:when>
-												<c:when test="${item.i_answer_state eq 1}"> <c:out value="답변완료" /> </c:when>
-												<c:otherwise> <c:out value="답변작성" /> </c:otherwise>
-											</c:choose>
-										</td>
-									</tr>
-								</c:forEach>
-							</tbody>
+						   <colgroup>
+						      <col width="10%">
+						      <col width="*">
+						      <col width="15%">
+						      <col width="15%">
+						   </colgroup>
+						   <tr>
+						      <td>글번호</td>
+						      <td>제 목</td>
+						      <td>작성자</td>
+						      <td>작성일</td>
+						   </tr>
+						   
+						   <!-- a태그에서 데이터를 넘길때에는 ? 를 쓴다. 
+						       boardNum이라는 글번호를 가지고 가겠다. -->
+						      <!-- 게시글 개수만큼 만들어줘야한다.taglib만들어주고. -->
+						      <c:forEach items="${list }" var="board">
+						      <tr>
+						          <td>${board.boardNum }</td>
+						          <td><a href="boardDetail.do?boardNum=${board.boardNum }">${board.title }</a></td>
+						          <td>${board.writer }</td>
+						          <td>${board.createDate }</td>
+						      </tr>
+						      </c:forEach>
+						         
+						   
 						</table>
+						<input type="button" value="글쓰기" onclick="location.href='regBoardForm.do';">
 					</form>
 				</div>
 			</div>

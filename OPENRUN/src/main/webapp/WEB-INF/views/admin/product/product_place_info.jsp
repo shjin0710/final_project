@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="<c:url value='/resources/common/css/product_detail.css' />" rel="stylesheet" type="text/css">
+<link href="<c:url value='/resources/common/css/product_place_info.css' />" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=050g6sah3m"></script>
 <jsp:include page="../include/calendar_js.jsp" />
 </head>
 <body>
@@ -55,7 +56,7 @@
 				<div class="main_content">
 					<div>
 						<div class="product_content">
-							<button class="select_btn" data-id="content" onclick="location.href='productDetail'">공연정보</button>
+							<button class="content_btn" data-id="content" onclick="location.href='productDetail'">공연정보</button>
 						</div>
 						<div class="sell_info">
 							<button class="content_btn" data-id="info" onclick="location.href='productSellInfo'">판매정보</button>
@@ -64,11 +65,11 @@
 							<button class="content_btn" data-id="review" onclick="location.href='productReview'">관람후기</button>
 						</div>
 						<div class="place_info">
-							<button class="content_btn" data-id="place" onclick="location.href='productPlaceInfo'">장소안내</button>
+							<button class="select_btn" data-id="place" onclick="location.href='productPlaceInfo'">장소안내</button>
 						</div>
 					</div>
-					<div class="editor_DB">
-						<p>DB content 받아오기</p>
+					<div class="place_API">
+						<div id="map"></div>
 					</div>
 				</div>
 			</div>
@@ -80,13 +81,13 @@
 	</section>
 	<jsp:include page="../../../views/footer.jsp" />
 	
-<!-- 	<script>
-		$(function() {
-			  var marginLeft = parseInt( $(".calendar").css('margin-left') );
-			  $(window).scroll(function(e) {
-			    $(".calendar").css("margin-left", marginLeft - $(this).scrollLeft() );
-			  });
-			});
-	</script> -->
+	<script>
+		var mapOptions = {
+		    center: new naver.maps.LatLng(37.3595704, 127.105399),
+		    zoom: 10
+		};
+		
+		var map = new naver.maps.Map('map', mapOptions);
+	</script>
 </body>
 </html>

@@ -20,7 +20,7 @@
 			</div>
 			<div>
 				<div class="word">
-					<h3>상품등록</h3>
+					<h3>상품 수정 요청</h3>
 				</div>
 				<div class="top_nav">
 					<table>

@@ -4,15 +4,18 @@ public class ProductVO {
 	int p_no;
 	String p_name;
 	String p_img;
-	String p_reg_date;
-	String p_end_date;
-	String p_perfo_date;
+	int p_category;
+	int p_location;
+	String p_perfo_start_date;
+	String p_perfo_end_date;
+	String p_resev_start_date;
+	String p_resev_end_date;
 	String p_viewing_time;
 	String p_viewing_grade;
+	int p_hall;
+	int p_seat;
 	String p_grade;
 	int p_price;
-	int p_perchase_able;
-	
 	
 	public int getP_no() {
 		return p_no;
@@ -31,24 +34,6 @@ public class ProductVO {
 	}
 	public void setP_img(String p_img) {
 		this.p_img = p_img;
-	}
-	public String getP_reg_date() {
-		return p_reg_date;
-	}
-	public void setP_reg_date(String p_reg_date) {
-		this.p_reg_date = p_reg_date;
-	}
-	public String getP_end_date() {
-		return p_end_date;
-	}
-	public void setP_end_date(String p_end_date) {
-		this.p_end_date = p_end_date;
-	}
-	public String getP_perfo_date() {
-		return p_perfo_date;
-	}
-	public void setP_perfo_date(String p_perfo_date) {
-		this.p_perfo_date = p_perfo_date;
 	}
 	public String getP_viewing_time() {
 		return p_viewing_time;
@@ -74,11 +59,53 @@ public class ProductVO {
 	public void setP_price(int p_price) {
 		this.p_price = p_price;
 	}
-	public int getP_perchase_able() {
-		return p_perchase_able;
+	public int getP_category() {
+		return p_category;
 	}
-	public void setP_perchase_able(int p_perchase_able) {
-		this.p_perchase_able = p_perchase_able;
+	public void setP_category(int p_category) {
+		this.p_category = p_category;
+	}
+	public int getP_location() {
+		return p_location;
+	}
+	public void setP_location(int p_location) {
+		this.p_location = p_location;
+	}
+	public String getP_perfo_start_date() {
+		return p_perfo_start_date;
+	}
+	public void setP_perfo_start_date(String p_perfo_start_date) {
+		this.p_perfo_start_date = p_perfo_start_date;
+	}
+	public String getP_perfo_end_date() {
+		return p_perfo_end_date;
+	}
+	public void setP_perfo_end_date(String p_perfo_end_date) {
+		this.p_perfo_end_date = p_perfo_end_date;
+	}
+	public String getP_resev_start_date() {
+		return p_resev_start_date;
+	}
+	public void setP_resev_start_date(String p_resev_start_date) {
+		this.p_resev_start_date = p_resev_start_date;
+	}
+	public String getP_resev_end_date() {
+		return p_resev_end_date;
+	}
+	public void setP_resev_end_date(String p_resev_end_date) {
+		this.p_resev_end_date = p_resev_end_date;
+	}
+	public int getP_hall() {
+		return p_hall;
+	}
+	public void setP_hall(int p_hall) {
+		this.p_hall = p_hall;
+	}
+	public int getP_seat() {
+		return p_seat;
+	}
+	public void setP_seat(int p_seat) {
+		this.p_seat = p_seat;
 	}
 
 	

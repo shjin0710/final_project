@@ -65,5 +65,33 @@ public class ProductService {
 		return productDao.deleteProduct(p_no);
 	}
 
-
+	
+	//product_sell_info.jsp 서비스 -DAO아직 없음 페이지창만 열리게 해둠
+	public ProductVO productSellInfo(int p_no) {
+		System.out.println("[ProductService] productDetail()");
+		
+		return productDao.selectProduct(p_no);
+	}
+	
+	//product_review.jsp 서비스 -DAO아직 없음 페이지창만 열리게 해둠
+	public ProductVO productReview(int p_no) {
+		System.out.println("[ProductService] productReview()");
+		
+		return productDao.selectProduct(p_no);
+	}
+	
+	//product_place_info.jsp 서비스 -DAO아직 없음 페이지창만 열리게 해둠
+	public ProductVO productPlaceInfo(int p_no) {
+		System.out.println("[ProductService] productPlaceInfo()");
+		
+		return productDao.selectProduct(p_no);
+	}
+	
+	//product_place_info.jsp 서비스 -DAO아직 없음 페이지창만 열리게 해둠
+	public boolean sellerProductList() {
+		System.out.println("[ProductService] sellerProductList()");
+		
+		return productDao.sellerList();
+	}
+	
 }

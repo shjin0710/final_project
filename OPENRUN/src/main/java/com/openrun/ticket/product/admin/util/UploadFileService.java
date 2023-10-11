@@ -13,7 +13,7 @@ public class UploadFileService {
 		
 		String fileOriName = file.getOriginalFilename();
 		String fileExtension = fileOriName.substring(fileOriName.lastIndexOf("."), fileOriName.length());
-		String uploadDir = "C:\\products\\thumnail";
+		String uploadDir = "C:\\product\\upload";
 		
 		UUID uuid = UUID.randomUUID();
 		String uniqueName = uuid.toString().replaceAll("-", "");
