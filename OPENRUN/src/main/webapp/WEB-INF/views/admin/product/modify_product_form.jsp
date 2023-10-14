@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <link href="<c:url value='/resources/common/css/sellerModifyProduct.css' />" rel="stylesheet" type="text/css">
 <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+<script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
 </head>
 <body>
 	<jsp:include page="../../../views/header.jsp" />
@@ -96,9 +96,10 @@
 							<input type="text" name="p_name" placeholder="제목을 입력해주세요." required> <br>
 						</div>
 						<div>
-							<textarea rows="5" cols="50" id="editor1" name = "editor"></textarea>
+							<textarea rows="5" cols="50" id="content" name = "p_content"></textarea>
 							<script>
-	               		         CKEDITOR.replace( 'editor1' );
+						    CKEDITOR.replace('content', { filebrowserUploadUrl : '${pageContext.request.contextPath}/adm/fileupload.do' });
+						    CKEDITOR.instances.content.setData();
 							</script>
 						</div>
 						<div id="buttons">

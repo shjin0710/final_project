@@ -69,7 +69,7 @@
 					</div>
 					<div class="review_DB">
 						<div class="row">
-							<form method="post" <%-- action="submitAction.jsp?bbsID=<%=bbsID%> --%>">
+							<form method="post" action="product_review_submit.jsp">
 								<table class="table-bordered">
 									<tbody>
 										<tr>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ page import="com.openrun.ticket.location.LocationVO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,10 +81,14 @@
 	</section>
 	<jsp:include page="../../../views/footer.jsp" />
 	
+	<%
+    LocationVO locationVo  = new LocationVO();
+	%>
+	
 	<script>
 		var mapOptions = {
-		    center: new naver.maps.LatLng(37.3595704, 127.105399),
-		    zoom: 10
+		    center: new naver.maps.LatLng(${locationVo.l_lat}, ${locationVo.l_long}), //여기에 원하는 장소의 위도,경도 입력하면 지도 위치 바뀜
+		    zoom: 16 // 확대는 이정도가 딱 좋은듯		//LocationVO에 p_no값을 넘겨주고 product에 입력한 p_hall과의 위도경도가 뜨도록 설정함!
 		};
 		
 		var map = new naver.maps.Map('map', mapOptions);

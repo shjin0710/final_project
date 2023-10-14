@@ -62,7 +62,7 @@
 		margin: 0 auto;
 		font-size : large;
 		position : fixed;
-    	right : 550px;
+    	right : 20%;
     	top : 250px;
 		}
 	
@@ -131,7 +131,7 @@
 	/* 에디터로 적은 글 가져오는 곳 */
 		
 	#section_wrap .sell_detail  {
-		width: 1024px;
+		width: 700x;
 		display : inline-block;
 		}		
 

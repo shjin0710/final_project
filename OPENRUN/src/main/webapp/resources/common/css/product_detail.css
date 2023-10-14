@@ -62,7 +62,7 @@
 		margin: 0 auto;
 		font-size : large;
 		position : fixed;
-    	right : 500px;
+    	right : 20%;
     	top : 250px;
 		}
 	
@@ -131,9 +131,14 @@
 	/* 에디터로 적은 글 가져오는 곳 */
 		
 	#section_wrap .editor_DB  {
-		width: 1024px;
+		width: 700px;
 		display : inline-block;
 		}		
+		
+	.editor_DB p {
+		width : 700px;
+		height : auto;
+	}
 	
 
 	

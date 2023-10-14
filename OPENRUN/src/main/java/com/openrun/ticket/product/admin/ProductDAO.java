@@ -46,8 +46,8 @@ public class ProductDAO {
 					+"p_resev_start_date, " + "p_resev_end_date, "
 					+"p_viewing_time, " + "p_viewing_grade, "
 					+"p_hall, " + "p_seat, "
-					+"p_grade, "+"p_price)"
-					+"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					+"p_grade, "+"p_price," + "p_content)"
+					+"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		
 	
@@ -62,7 +62,8 @@ public class ProductDAO {
 										productVo.getP_resev_start_date(), productVo.getP_resev_end_date(), 
 										productVo.getP_viewing_time(), productVo.getP_viewing_grade(), 
 										productVo.getP_hall(), productVo.getP_seat(),
-										productVo.getP_grade(), productVo.getP_price());
+										productVo.getP_grade(), productVo.getP_price(),
+										productVo.getP_content());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -85,18 +86,19 @@ public class ProductDAO {
 					productVo.setP_no(rs.getInt("p_no"));
 					productVo.setP_img(rs.getString("p_img"));
 					productVo.setP_name(rs.getString("p_name"));
-					productVo.setP_category(rs.getInt("p_category"));
-					productVo.setP_location(rs.getInt("p_location"));
+					productVo.setP_category(rs.getString("p_category"));
+					productVo.setP_location(rs.getString("p_location"));
 					productVo.setP_perfo_start_date(rs.getString("p_perfo_start_date"));
 					productVo.setP_perfo_end_date(rs.getString("p_perfo_end_date"));
 					productVo.setP_resev_start_date(rs.getString("p_resev_start_date"));
 					productVo.setP_resev_end_date(rs.getString("p_resev_end_date"));
 					productVo.setP_viewing_time(rs.getString("p_viewing_time"));
 					productVo.setP_viewing_grade(rs.getString("p_viewing_grade"));
-					productVo.setP_hall(rs.getInt("p_hall"));
+					productVo.setP_hall(rs.getString("p_hall"));
 					productVo.setP_seat(rs.getInt("p_seat"));
 					productVo.setP_grade(rs.getString("p_grade"));
 					productVo.setP_price(rs.getInt("p_price"));
+					productVo.setP_content(rs.getString("p_content"));
 					
 					return productVo;
 					
@@ -124,18 +126,19 @@ public class ProductDAO {
 					productVo.setP_no(rs.getInt("p_no"));
 					productVo.setP_img(rs.getString("p_img"));
 					productVo.setP_name(rs.getString("p_name"));
-					productVo.setP_category(rs.getInt("p_category"));
-					productVo.setP_location(rs.getInt("p_location"));
+					productVo.setP_category(rs.getString("p_category"));
+					productVo.setP_location(rs.getString("p_location"));
 					productVo.setP_perfo_start_date(rs.getString("p_perfo_start_date"));
 					productVo.setP_perfo_end_date(rs.getString("p_perfo_end_date"));
 					productVo.setP_resev_start_date(rs.getString("p_resev_start_date"));
 					productVo.setP_resev_end_date(rs.getString("p_resev_end_date"));
 					productVo.setP_viewing_time(rs.getString("p_viewing_time"));
 					productVo.setP_viewing_grade(rs.getString("p_viewing_grade"));
-					productVo.setP_hall(rs.getInt("p_hall"));
+					productVo.setP_hall(rs.getString("p_hall"));
 					productVo.setP_seat(rs.getInt("p_seat"));
 					productVo.setP_grade(rs.getString("p_grade"));
 					productVo.setP_price(rs.getInt("p_price"));
+					productVo.setP_content(rs.getString("p_content"));
 					
 					return productVo;
 					
@@ -162,10 +165,10 @@ public class ProductDAO {
 		args.add(productVo.getP_name());
 		
 		sql += "p_category = ?, ";
-		args.add(Integer.toString(productVo.getP_category()));
+		args.add(productVo.getP_category());
 		
 		sql += "p_location = ?, ";
-		args.add(Integer.toString(productVo.getP_location()));
+		args.add(productVo.getP_location());
 		
 		sql += "p_perfo_start_date = ?, ";
 		args.add(productVo.getP_perfo_start_date());
@@ -183,7 +186,7 @@ public class ProductDAO {
 		args.add(productVo.getP_viewing_grade ());
 		
 		sql += "p_hall = ?, ";
-		args.add(Integer.toString(productVo.getP_hall()));
+		args.add(productVo.getP_hall());
 		
 		sql += "p_grade = ?, ";
 		args.add(productVo.getP_grade());
@@ -193,6 +196,9 @@ public class ProductDAO {
 		
 		sql += "p_price = ?, ";
 		args.add(Integer.toString(productVo.getP_price()));
+		
+		sql += "p_content = ?, ";
+		args.add(productVo.getP_content());
 		
 		sql += "WHERE p_no = ?";
 		args.add(Integer.toString(productVo.getP_no()));

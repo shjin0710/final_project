@@ -4,19 +4,26 @@ public class ProductVO {
 	int p_no;
 	String p_name;
 	String p_img;
-	int p_category;
-	int p_location;
+	String p_category;
+	String p_location;
 	String p_perfo_start_date;
 	String p_perfo_end_date;
 	String p_resev_start_date;
 	String p_resev_end_date;
 	String p_viewing_time;
 	String p_viewing_grade;
-	int p_hall;
+	String p_hall;
 	int p_seat;
 	String p_grade;
 	int p_price;
+	String p_content;
 	
+	public String getP_content() {
+		return p_content;
+	}
+	public void setP_content(String p_content) {
+		this.p_content = p_content;
+	}
 	public int getP_no() {
 		return p_no;
 	}
@@ -59,16 +66,16 @@ public class ProductVO {
 	public void setP_price(int p_price) {
 		this.p_price = p_price;
 	}
-	public int getP_category() {
+	public String getP_category() {
 		return p_category;
 	}
-	public void setP_category(int p_category) {
+	public void setP_category(String p_category) {
 		this.p_category = p_category;
 	}
-	public int getP_location() {
+	public String getP_location() {
 		return p_location;
 	}
-	public void setP_location(int p_location) {
+	public void setP_location(String p_location) {
 		this.p_location = p_location;
 	}
 	public String getP_perfo_start_date() {
@@ -95,10 +102,10 @@ public class ProductVO {
 	public void setP_resev_end_date(String p_resev_end_date) {
 		this.p_resev_end_date = p_resev_end_date;
 	}
-	public int getP_hall() {
+	public String getP_hall() {
 		return p_hall;
 	}
-	public void setP_hall(int p_hall) {
+	public void setP_hall(String p_hall) {
 		this.p_hall = p_hall;
 	}
 	public int getP_seat() {

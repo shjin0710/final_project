@@ -55,14 +55,6 @@
 										</td>
 										<td>${item.p_seat}</td>
 										<td>${item.p_resev_start_date} ~ ${item.p_resev_end_date}까지</td>
-										<td>
-											<%-- <c:choose>
-												<c:when test="${item.b_rantal_able eq 0}"> <c:out value="대출중" /> </c:when>
-												<c:when test="${item.b_rantal_able eq 1}"> <c:out value="대출가능" /> </c:when>
-												<c:otherwise> <c:out value="대출중" /> </c:otherwise>
-											</c:choose> --%>
-										판매중/판매완료
-										</td>
 									</tr>
 								</c:forEach>
 							</tbody>

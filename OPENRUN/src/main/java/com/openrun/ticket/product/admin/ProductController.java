@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.openrun.ticket.location.LocationService;
+import com.openrun.ticket.location.LocationVO;
 import com.openrun.ticket.product.ProductVO;
 import com.openrun.ticket.product.admin.util.UploadFileService;
 
@@ -21,6 +23,9 @@ public class ProductController {
 	
 	@Autowired
 	ProductService productService;
+	
+	@Autowired
+	LocationService locationService;
 	
 	@Autowired
 	UploadFileService uploadFileService;
@@ -153,7 +158,11 @@ public class ProductController {
 		
 		ProductVO productVo = productService.productDetail(p_no);
 		
+		LocationVO locationVo = locationService.locationDetail(p_no);
+		
 		model.addAttribute("productVo", productVo);
+		
+		model.addAttribute("locationVo", locationVo);
 		
 		return nextPage;
 	}
@@ -164,6 +173,16 @@ public class ProductController {
 		System.out.println("[ProductController] sellerProductList()");
 		
 		String nextPage = "admin/product/seller_product_list";
+		
+		return nextPage;
+	}
+	
+	//seller_product_list.jsp 컨트롤러-DAO아직 없음, 페이지창만 열리게 해둠
+	@GetMapping("/inquiryProductList")
+	public String inquiryProductList() {
+		System.out.println("[ProductController] inquiryProductList()");
+		
+		String nextPage = "admin/product/inquiry_product_list";
 		
 		return nextPage;
 	}

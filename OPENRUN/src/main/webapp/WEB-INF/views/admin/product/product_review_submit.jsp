@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ page import="com.openrun.ticket.comment.CommentDAO" %>
+<%@ page import="java.io.PrintWriter" %>
+<% request.setCharacterEncoding("UTF-8"); %>
+<jsp:useBean id="comment" class="com.openrun.ticket.comment.CommentVO" scope="page"/>
+<jsp:setProperty name="comment" property="commentContent" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="<c:url value='/resources/common/css/product_detail.css' />" rel="stylesheet" type="text/css">
-<%-- <link href="<c:url value='/resources/common/css/goods_detail.css' />" rel="stylesheet" type="text/css"> --%>
+<link href="<c:url value='/resources/common/css/product_review.css' />" rel="stylesheet" type="text/css">
 <jsp:include page="../include/calendar_js.jsp" />
-<script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
 </head>
 <body>
 	<jsp:include page="../../../views/header.jsp" />
@@ -22,7 +24,7 @@
 				</div>
 				
 				<div class="product_img">
-					<img src="<c:url value="/productUploadImg/${productVo.p_img}" />" style="width : 200px;">
+					<img src="<c:url value="/productUploadImg/${productVo.p_img}"/>">
 							<!-- DB에서 받아올 상품 썸네일 -->
 				</div>
 				<div class="product_table">
@@ -57,20 +59,43 @@
 				<div class="main_content">
 					<div>
 						<div class="product_content">
-							<button class="select_btn" data-id="content" onclick="location.href='productDetail'">공연정보</button>
+							<button class="content_btn" data-id="content" onclick="location.href='productDetail'">공연정보</button>
 						</div>
 						<div class="sell_info">
-							<button class="content_btn" data-id="info" onclick="location.href='productSellInfo'">판매정보</button>
+							<button class="content_btn" data-id="info" onclick="location.href='productSellInfo}">판매정보</button>
 						</div>
 						<div class="review">
-							<button class="content_btn" data-id="review" onclick="location.href='productReview'">관람후기</button>
+							<button class="select_btn" data-id="review" onclick="location.href='productReview'">관람후기</button>
 						</div>
 						<div class="place_info">
 							<button class="content_btn" data-id="place" onclick="location.href='productPlaceInfo'">장소안내</button>
 						</div>
 					</div>
-					<div class="editor_DB" style="width: 700px;">
-							<div>${productVo.p_content}</div>
+					<div class="review_DB">
+						<div class="row">
+							<form method="post" <%-- action="submitAction.jsp?bbsID=<%=bbsID%> --%>">
+								<table class="table-bordered">
+									<tbody>
+										<tr>
+											<td>
+											<textarea class="form-control" placeholder="관람후기를 남겨보세요!" 
+																		name="c_content" rows="" cols=""></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td><input type="submit" class="table_btn"	value="댓글 쓰기"></td>
+										</tr>
+									</tbody>
+								</table>
+								<div> 리뷰목록 </div>
+								<ul>
+									<li> 
+										<div>리뷰내용</div>
+										<button>삭제</button>
+									</li>
+								</ul>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
